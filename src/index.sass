@@ -7,7 +7,7 @@
 
 $txt: #E0DEDE
 $bg: #212020
-$border: #444444
+$border: #555555
 $accent: #8977f1
 $error: #c7406b
 
@@ -22,7 +22,7 @@ $xl-mp: 12rem
     body
         margin: $m-mp
     footer
-        right: -$m-mp
+        right: -2.5rem
 
 @media screen and (min-width: 651px)
     body
@@ -49,10 +49,20 @@ body
     font-family: 'IBM Plex Mono', monospace
     font-size: 14px
 
+hr
+    border-color: $border
+    border-top: 1px
+    margin: $s-mp 0
+
+h1,h2,h3
+    display: flex
+    align-items: center
+
 a
     width: fit-content
     color: $accent
     text-decoration: 1px underline dotted
+    text-underline-offset: 3px
     &.bttn
         text-decoration: none
         border-radius: $xxs-mp
@@ -72,6 +82,13 @@ a
                 color: $bg
                 background-color: $error
 
+    &.card
+        color: $txt
+        text-decoration: none
+        transition: .1s
+        &:hover
+            transform: translateY(-$xxs-mp)
+
 ul
     display: flex
     flex-direction: column
@@ -79,18 +96,15 @@ ul
     list-style: none
     li
         position: relative
-        margin-left: 1rem
-        display: flex
-        flex-direction: column
-        gap: $s-mp
+        margin-left: 2.5rem
         &::before
             position: absolute
             content: ""
-            width: 3rem
+            width: 6rem
             height: 1px
-            background: $txt
-            left: -3.5rem
-            top: .75rem
+            background: $accent
+            left: -5.75rem
+            top: 10px
 
 .flex
     display: flex
@@ -102,20 +116,49 @@ ul
 
 img
     width: 100%
+    object-fit: cover
+
+.tags
+    gap: $xs-mp
+    flex-wrap: wrap
+    align-items: center
+    p.tag
+        width: fit-content
+        padding: $xxs-mp $s-mp
+        border-radius: $m-mp
+        &.horror, &.thriller
+            background-color: #3b5072
+        &.comedy, &.animation
+            background-color: #8d7347
+        &.romance, &.action
+            background-color: #723b3b
+        &.drama, &.mystery
+            background-color: #46706e
+        &.fantasy, &.sci-fi
+            background-color: #6e467c
+.secondary
+    color: $border
+
+span.icon
+    margin-right: $xs-mp
+    margin-top: $xxs-mp
 
 .card-list
     flex-wrap: wrap
     &__item
+        align-self: flex-start
         flex: 240px
         overflow: hidden
         border-radius: $xxs-mp
         border: 1px solid $border
         &-img
-            object-fit: cover
-            height: $l-mp
+            height: $xl-mp
         &-txt
             gap: $xs-mp
-            padding: $xxs-mp $s-mp $s-mp $s-mp
+            padding: $xxs-mp $s-mp
+        &-footer
+            padding: $s-mp
+            border-top: 1px solid $border
 
 .main
     align-self: center
@@ -127,6 +170,48 @@ img
     gap: $m-mp
     section
         gap: $s-mp
+        overflow: hidden
+        &:has(a.card)
+            overflow: visible
+
+        &.movie
+            position: relative
+            h3
+                margin-bottom: $s-mp
+            img
+                position: relative
+                height: 24rem
+                border-radius: $xxs-mp
+            .status
+                padding: $xs-mp $s-mp
+                border-radius: $xxs-mp
+                position: absolute
+                background-color: $bg
+                z-index: 1000
+                top: $s-mp
+                right: $s-mp
+                &.watched
+                    background-color: $txt
+                    color: $bg
+                &.unwatched
+                    background-color: $bg
+                    color: $txt
+
+        .movie
+            &-comments
+                &__item
+                    margin-bottom: $xs-mp
+                    &-icon
+                        min-width: $m-mp
+                        height: $m-mp
+                        border-radius: $xxs-mp
+                        background-color: $border
+                    &-txt
+                        .usr
+                            font-weight: bold
+                            margin-bottom: -$xs-mp
+                        .date
+                            text-align: right
 
 form
     gap: $s-mp !important
@@ -170,13 +255,12 @@ form
 
 footer
     top: 16rem
-    position: absolute
+    position: fixed
     transform: rotate(90deg)
-    opacity: .25
     &::before
         content: ""
         position: absolute
-        background-color: $txt
+        background-color: $border
         width: 400px
         height: 1px
         top: 10px
