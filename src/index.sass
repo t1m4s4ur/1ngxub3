@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap')
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+$txt: #E0DEDE
+$bg: #212020
+$border: #444444
+$accent: #8977f1
+$error: #c7406b
+
+$xxs-mp: .25rem
+$xs-mp: .5rem
+$s-mp: 1rem
+$m-mp: 3rem
+$l-mp: 6rem
+$xl-mp: 12rem
+
+@media screen and (max-width: 650px)
+    body
+        margin: $m-mp
+    footer
+        right: -$m-mp
+
+@media screen and (min-width: 651px)
+    body
+        margin: $xl-mp $l-mp
+    footer
+        right: -$s-mp
+
+@media screen and (min-width: 1100px)
+    body
+        margin: $xl-mp calc( $xl-mp * 1.75 )
+
+@media screen and (min-width: 1400px)
+    body
+        margin: $xl-mp calc( $xl-mp * 2.75 )
+
+@media screen and (min-width: 1700px)
+    body
+        margin: $xl-mp calc( $xl-mp * 3 )
+
+body
+    color: $txt
+    background-color: $bg
+    // font-family: 'Ubuntu', sans
+    font-family: 'IBM Plex Mono', monospace
+    font-size: 14px
+
+a
+    width: fit-content
+    color: $accent
+    text-decoration: 1px underline dotted
+    &.bttn
+        text-decoration: none
+        border-radius: $xxs-mp
+        border: 1px solid $border
+        padding: $s-mp
+        color: $txt
+        &:hover
+            color: $bg
+            background-color: $accent
+            border: 1px solid $accent
+        &.error
+            color: $bg
+            background-color: $bg
+            border: 1px solid $error
+            color: $error
+            &:hover
+                color: $bg
+                background-color: $error
+
+ul
+    display: flex
+    flex-direction: column
+    gap: $s-mp
+    list-style: none
+    li
+        position: relative
+        margin-left: 1rem
+        display: flex
+        flex-direction: column
+        gap: $s-mp
+        &::before
+            position: absolute
+            content: ""
+            width: 3rem
+            height: 1px
+            background: $txt
+            left: -3.5rem
+            top: .75rem
+
+.flex
+    display: flex
+    gap: $s-mp
+    &.ver
+        flex-direction: column
+    &.hor
+        flex-direction: row
+
+img
+    width: 100%
+
+.card-list
+    flex-wrap: wrap
+    &__item
+        flex: 240px
+        overflow: hidden
+        border-radius: $xxs-mp
+        border: 1px solid $border
+        &-img
+            object-fit: cover
+            height: $l-mp
+        &-txt
+            gap: $xs-mp
+            padding: $xxs-mp $s-mp $s-mp $s-mp
+
+.main
+    align-self: center
+    justify-self: center
+    display: flex
+    flex-direction: column
+    position: relative
+    top: 0
+    gap: $m-mp
+    section
+        gap: $s-mp
+
+form
+    gap: $s-mp !important
+    .input-wrap
+        gap: 0
+        input
+            border-right: none
+            border-radius: $xxs-mp 0 0 $xxs-mp
+        &__gen
+            padding: $s-mp $s-mp
+            border: 1px solid $border
+            border-radius: 0 $xxs-mp $xxs-mp 0
+            cursor: pointer
+            &:hover
+                background-color: $accent
+                border: 1px solid $accent
+                color: $txt
+    input
+        font-size: 14px
+        width: 100%
+        border-radius: $xxs-mp
+        border: 1px solid $border
+        background: none
+        color: $txt
+        padding: $s-mp
+        font-family: 'Ubuntu', sans
+        &:focus
+            outline: none
+            border: 1px solid $accent
+        &[type=button]
+            margin-top: $s-mp
+            width: 100%
+            cursor: pointer
+            background-color: $txt
+            border: 1px solid $txt
+            color: $bg
+            &:hover
+                background-color: $accent
+                border: 1px solid $accent
+                color: $txt
+
+footer
+    top: 16rem
+    position: absolute
+    transform: rotate(90deg)
+    opacity: .25
+    &::before
+        content: ""
+        position: absolute
+        background-color: $txt
+        width: 400px
+        height: 1px
+        top: 10px
+        left: -26rem
