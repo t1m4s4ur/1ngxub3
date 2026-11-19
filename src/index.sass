@@ -8,7 +8,7 @@
 $txt: #E0DEDE
 $bg: #212020
 $border: #555555
-$accent: #8977f1
+$accent: #7d6dd5
 $error: #c7406b
 
 $xxs-mp: .25rem
@@ -19,35 +19,65 @@ $l-mp: 6rem
 $xl-mp: 12rem
 
 @media screen and (max-width: 650px)
-    body
-        margin: $m-mp
+    // .wrap
+    //     padding: $m-mp
     footer
         right: -2.5rem
 
 @media screen and (min-width: 651px)
-    body
-        margin: $xl-mp $l-mp
+    // .wrap
+    //     padding: $l-mp
     footer
         right: -$s-mp
 
 @media screen and (min-width: 1100px)
-    body
-        margin: $xl-mp calc( $xl-mp * 1.75 )
+    .wrap
+        padding: $l-mp calc( $xl-mp * 1.75 )
 
 @media screen and (min-width: 1400px)
-    body
-        margin: $xl-mp calc( $xl-mp * 2.75 )
+    .wrap
+        padding: $l-mp calc( $xl-mp * 2.75 )
 
 @media screen and (min-width: 1700px)
-    body
-        margin: $xl-mp calc( $xl-mp * 3 )
+    .wrap
+        padding: $l-mp calc( $xl-mp * 3 )
+
+.loading
+    position: fixed
+    inset: 0
+    z-index: 1000
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $bg
+    font-size: $m-mp
+    &-circle
+        width: $m-mp
+        height: $m-mp
+        border-radius: 50%
+        border: $xxs-mp solid $accent
+        border-top-color: transparent
+        animation: spin 1s linear infinite
+
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
 
 body
+    height: 100vh
+    display: flex
+    align-items: flex-start
+    justify-content: center
     color: $txt
     background-color: $bg
     // font-family: 'Ubuntu', sans
     font-family: 'IBM Plex Mono', monospace
     font-size: 14px
+    &:has(section.index),&:has(.profile),&:has(.signin),&:has(.signup)
+        align-items: center !important
 
 hr
     border-color: $border
@@ -56,7 +86,17 @@ hr
 
 h1,h2,h3
     display: flex
-    align-items: center
+    align-items: flex-start
+    gap: $xxs-mp
+h1
+    font-size: 1.35rem
+    font-weight: 700
+h2
+    font-size: 1.25rem
+    font-weight: 600
+h3
+    font-size: 1rem
+    font-weight: 500
 
 a
     width: fit-content
@@ -100,11 +140,13 @@ ul
         &::before
             position: absolute
             content: ""
-            width: 6rem
+            width: 8rem
             height: 1px
             background: $accent
-            left: -5.75rem
+            left: -7.75rem
             top: 10px
+        ul
+            margin-top: $s-mp
 
 .flex
     display: flex
@@ -117,6 +159,8 @@ ul
 img
     width: 100%
     object-fit: cover
+    height: 24rem
+    border-radius: $xxs-mp
 
 .tags
     gap: $xs-mp
@@ -147,7 +191,7 @@ span.icon
     flex-wrap: wrap
     &__item
         align-self: flex-start
-        flex: 240px
+        flex: 240px 
         overflow: hidden
         border-radius: $xxs-mp
         border: 1px solid $border
@@ -160,15 +204,9 @@ span.icon
             padding: $s-mp
             border-top: 1px solid $border
 
-.main
-    align-self: center
-    justify-self: center
-    display: flex
-    flex-direction: column
-    position: relative
-    top: 0
+.wrap
     gap: $m-mp
-    section
+    section, article
         gap: $s-mp
         overflow: hidden
         &:has(a.card)
@@ -178,10 +216,6 @@ span.icon
             position: relative
             h3
                 margin-bottom: $s-mp
-            img
-                position: relative
-                height: 24rem
-                border-radius: $xxs-mp
             .status
                 padding: $xs-mp $s-mp
                 border-radius: $xxs-mp
