@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Footer from "./assets/components/footer";
 import Header from "./assets/components/header";
 
-import { supabase } from './utils/supabase'
+import { supabase } from "./utils/supabase";
 
 import "./App.css";
 
@@ -16,6 +16,10 @@ const pageContent = {
   "/movies": {
     directory: "movies",
     description: "list of all movies",
+  },
+  "/movies/watched": {
+    directory: "movies/watched",
+    description: "list of all watched movies",
   },
   "/movies/watchlist": {
     directory: "movies/watchlist",
@@ -79,21 +83,6 @@ export default function App() {
       <div className="wrap flex ver">
         {pathname !== "/" && <Link to="/">back to index</Link>}
         {loading && (
-          // <p className="loading">
-          //   <Typewriter
-          //     key={pathname}
-          //     options={{
-          //       strings: ["..."],
-          //       autoStart: true,
-          //       cursor: "",
-          //       cursorBlink: false,
-          //       loop: true,
-          //       delay: 50,
-          //       pauseFor: 50,
-          //       deleteSpeed: 50,
-          //     }}
-          //   />
-          // </p>
           <div className="loading">
             <div className="loading-circle"></div>
           </div>
@@ -101,72 +90,10 @@ export default function App() {
         <Header directory={page.directory} description={page.description} />
         <main>
           <Outlet />
+          {/* <img src="https://i.pinimg.com/originals/63/17/31/63173162a98b20f741f434b2ee1b5de4.gif" alt="dino" className="gif" /> */}
         </main>
         <Footer />
       </div>
-
-      {/* <a href="">to index</a> */}
-
-      {/* <p>create an acc to browse</p> */}
-
-      {/* <p>sign in your acc to browse</p> */}
-
-      {/* <p>settings and customization</p> */}
-
-      {/* <p>list of all selected unwatched movies</p> */}
-
-      {/* PROFILE */}
-      {/* <section className="flex ver">
-          <p>username: 123123</p>
-          date created: 10/12/12
-        </section>
-        <div className="bttn-group flex hor">
-          <a href="" className="bttn">
-            sign out
-          </a>
-
-          <a href="" className="bttn error">
-            delete
-          </a>
-        </div> */}
-
-      {/* DIRECTORY CHOICE */}
-      {/* <section className="flex ver"> */}
-      {/* <img
-            className="full"
-            src="https://images.unsplash.com/photo-1793279054626-dadc776db13b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
-            alt="img"
-          />
-          <h3>movie name (2026)</h3>
-          <p>planned for 11/11/2011 @ 03:00 PM (MSK)</p>
-          <a href="">check out for full page</a>
-          <hr /> */}
-      {/* <ul className="directory">
-            <li>
-              <a href="/movies">/movies</a> (all movies)
-              <ul>
-                <li>
-                  <a href="/movies/watchlist">/watchlist</a> (unwatched movies)
-                  <ul>
-                    <li>
-                      <a href="/movies/watchlist/suggest">/suggest</a> (a new
-                      movie)
-                    </li>
-                    <li>
-                      <a href="/movies/watchlist/vote">/vote</a> (for a movie)
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <li>
-                  <a href="">/vote</a> for a movie
-                </li> 
-              <li>
-                  <a href="">/takeseat</a> to watch
-                </li> 
-            </li>
-          </ul>
-        </section> */}
     </>
   );
 }

@@ -7,8 +7,8 @@
 
 $txt: #E0DEDE
 $bg: #212020
-$border: #555555
-$accent: #7d6dd5
+$border: #5b5b5b
+$accent: #7a69dd
 $error: #c7406b
 
 $xxs-mp: .25rem
@@ -19,33 +19,38 @@ $l-mp: 6rem
 $xl-mp: 12rem
 
 @media screen and (max-width: 650px)
-    // .wrap
-    //     padding: $m-mp
+    .wrap
+        padding: $m-mp
     footer
         right: -2.5rem
 
 @media screen and (min-width: 651px)
-    // .wrap
-    //     padding: $l-mp
+    .wrap
+        padding: $l-mp
     footer
         right: -$s-mp
 
-@media screen and (min-width: 1100px)
+@media screen and (min-width: 1000px)
     .wrap
-        padding: $l-mp calc( $xl-mp * 1.75 )
+        padding: $l-mp calc( $xl-mp * 1.5 )
 
-@media screen and (min-width: 1400px)
+@media screen and (min-width: 1500px)
     .wrap
-        padding: $l-mp calc( $xl-mp * 2.75 )
+        padding: $l-mp calc( $xl-mp * 2.5 )
 
-@media screen and (min-width: 1700px)
-    .wrap
-        padding: $l-mp calc( $xl-mp * 3 )
+// .gif
+//     position: fixed
+//     bottom: $s-mp
+//     left: $xxs-mp
+//     width: $l-mp
+//     height: $l-mp
+//     z-index: -10
+//     filter: grayscale(100%) opacity(.5)
 
 .loading
     position: fixed
     inset: 0
-    z-index: 1000
+    z-index: 2000
     display: flex
     align-items: center
     justify-content: center
@@ -64,7 +69,6 @@ $xl-mp: 12rem
         transform: rotate(0deg)
     100%
         transform: rotate(360deg)
-
 
 body
     height: 100vh
@@ -182,6 +186,10 @@ img
             background-color: #6e467c
 .secondary
     color: $border
+.special
+    background-color: $border
+    padding: $xxs-mp $xs-mp
+    border-radius: $xxs-mp
 
 span.icon
     margin-right: $xs-mp
@@ -190,8 +198,9 @@ span.icon
 .card-list
     flex-wrap: wrap
     &__item
+        position: relative
         align-self: flex-start
-        flex: 240px 
+        flex: 240px
         overflow: hidden
         border-radius: $xxs-mp
         border: 1px solid $border
@@ -204,10 +213,25 @@ span.icon
             padding: $s-mp
             border-top: 1px solid $border
 
+.status
+    padding: $xs-mp $s-mp
+    border-radius: $xxs-mp
+    position: absolute
+    background-color: $bg
+    z-index: 1000
+    top: $s-mp
+    right: $s-mp
+    &.watched
+        background-color: $txt
+        color: $bg
+    &.unwatched
+        background-color: $bg
+        color: $txt
+
 .wrap
     gap: $m-mp
     section, article
-        gap: $s-mp
+        gap: $m-mp
         overflow: hidden
         &:has(a.card)
             overflow: visible
@@ -216,36 +240,27 @@ span.icon
             position: relative
             h3
                 margin-bottom: $s-mp
-            .status
-                padding: $xs-mp $s-mp
-                border-radius: $xxs-mp
-                position: absolute
-                background-color: $bg
-                z-index: 1000
-                top: $s-mp
-                right: $s-mp
-                &.watched
-                    background-color: $txt
-                    color: $bg
-                &.unwatched
-                    background-color: $bg
-                    color: $txt
 
         .movie
             &-comments
                 &__item
                     margin-bottom: $xs-mp
-                    &-icon
-                        min-width: $m-mp
-                        height: $m-mp
-                        border-radius: $xxs-mp
-                        background-color: $border
                     &-txt
                         .usr
                             font-weight: bold
                             margin-bottom: -$xs-mp
                         .date
                             text-align: right
+
+.movie-comments__item-icon, .profile-info__icon
+    border-radius: $xxs-mp
+    background-color: $border
+    width: 4rem
+    height: 4rem
+
+.profile
+    &-info, h3
+        align-items: center
 
 form
     gap: $s-mp !important

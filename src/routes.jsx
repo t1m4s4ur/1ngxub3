@@ -5,6 +5,7 @@ import Index from "./pages/Index";
 import Movies from "./pages/Movies";
 import MovieItem from "./pages/MovieItem";
 import Watchlist from "./pages/Watchlist";
+import Watched from "./pages/Watched";
 import Suggest from "./pages/Suggest";
 import Vote from "./pages/Vote";
 import SignIn from "./pages/SignIn";
@@ -20,6 +21,7 @@ export const routers = createBrowserRouter([
       { index: true, element: <Index /> },
       { path: "movies", element: <Movies /> },
       { path: "movies/watchlist", element: <Watchlist /> },
+      { path: "movies/watched", element: <Watched /> },
       { path: "movies/watchlist/suggest", element: <Suggest /> },
       { path: "movies/watchlist/vote", element: <Vote /> },
       { path: "movies/:moviePath", element: <MovieItem /> },
