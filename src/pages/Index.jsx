@@ -30,6 +30,8 @@ export default function Index() {
           </li>
           <li>/res</li>
         </ul>
+      </section>
+      <section className="flex ver">
         <p className="secondary">
           P.S. this website is neither a movie database nor a place to watch
           movies. it's made purely for the purpose of planning watching movies

@@ -8,9 +8,9 @@
 $txt: #E0DEDE
 $bg: #212020
 $bg-gradient: radial-gradient(circle at 0% 0%, #161616, #212020)
-$border: #5b5b5b
+$border: #5d5d5d
 $accent: #816cf3
-$error: #c7406b
+$error: #e14174
 
 $xxs-mp: .25rem
 $xs-mp: .5rem
@@ -86,7 +86,7 @@ body
     color: $txt
     background-image: url("https://i.pinimg.com/1200x/7d/68/7a/7d687ac27902cd6d11fbad28653768c2.jpg")
     background-blend-mode: multiply
-    background-size: 24rem
+    background-size: 16rem
     background-attachment: fixed
     background-color: $bg
     // font-family: 'Ubuntu', sans
@@ -95,9 +95,9 @@ body
     &:has(section.idx),&:has(.profile),&:has(.signin),&:has(.signup)
         align-items: center !important
 
-// main
-//     opacity: 0
-//     animation: fadeIn .3s ease-in-out forwards
+main
+    // overflow: hidden
+    gap: $m-mp !important
 
 hr
     border-color: $border
@@ -129,7 +129,6 @@ a
         border: 1px solid $border
         padding: $s-mp
         color: $txt
-        background-color: $bg
         &:hover
             color: $bg
             background-color: $accent
@@ -158,10 +157,10 @@ ul
         &::before
             position: absolute
             content: ""
-            width: 8rem
+            width: 100rem
             height: 1px
-            background: $accent
-            left: -7.75rem
+            background: linear-gradient(to right, rgba(0,0,0,0) 97%, rgba(128, 108, 243, 1))
+            left: -99.75rem
             top: 10px
         ul
             margin-top: $s-mp
@@ -244,11 +243,12 @@ span.icon
         color: $txt
 
 .wrap
+    overflow: hidden
     width: 80vw
     gap: $m-mp
     section, article
-        gap: $s-mp
         overflow: hidden
+        gap: $s-mp
         &:has(a.card)
             overflow: visible
 
@@ -320,8 +320,8 @@ span.icon
         align-items: center
     &-info, &-rank, &-stats
         padding: 0 $s-mp
+        padding-bottom: $s-mp
     &-footer
-        margin-top: $xs-mp
         gap: 0
         border-top: 1px solid $border
         a

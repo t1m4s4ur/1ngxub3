@@ -1,4 +1,4 @@
 function Footer() {
-  return <footer className="secondary">coded by sh4vk4</footer>;
+  return <footer className="secondary">sh4vk4 © 2026</footer>;
 }
 export default Footer;

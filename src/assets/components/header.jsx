@@ -19,7 +19,7 @@ export default function Header({ directory, description }) {
         />
       </h1>
 
-      <p>{description}</p>
+      <p className="secondary">{description}</p>
     </header>
   );
 }

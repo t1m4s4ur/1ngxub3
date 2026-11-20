@@ -47,7 +47,7 @@ export default function Suggest() {
             </div>
 
             <a href="" className="bttn suggest-result__item-footer">
-              suggest this one
+              suggest
             </a>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Suggest() {
             </div>
 
             <a href="" className="bttn suggest-result__item-footer">
-              suggest this one
+              suggest
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Suggest() {
             </div>
 
             <a href="" className="bttn suggest-result__item-footer">
-              suggest this one
+              suggest
             </a>
           </div>
         </div>

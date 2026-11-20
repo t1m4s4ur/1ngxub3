@@ -52,7 +52,7 @@ body {
   color: #E0DEDE;
   background-image: url("https://i.pinimg.com/1200x/7d/68/7a/7d687ac27902cd6d11fbad28653768c2.jpg");
   background-blend-mode: multiply;
-  background-size: 24rem;
+  background-size: 16rem;
   background-attachment: fixed;
   background-color: #212020;
   font-family: "IBM Plex Mono", monospace;
@@ -62,8 +62,12 @@ body:has(section.idx), body:has(.profile), body:has(.signin), body:has(.signup) 
   align-items: center !important;
 }
 
+main {
+  gap: 3rem !important;
+}
+
 hr {
-  border-color: #5b5b5b;
+  border-color: #5d5d5d;
   border-top: 1px;
   margin: 1rem 0;
 }
@@ -100,10 +104,9 @@ a {
 a.bttn {
   text-decoration: none;
   border-radius: 0.25rem;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   padding: 1rem;
   color: #E0DEDE;
-  background-color: #212020;
 }
 a.bttn:hover {
   color: #212020;
@@ -111,12 +114,12 @@ a.bttn:hover {
   border: 1px solid #816cf3;
 }
 a.bttn.error {
-  border: 1px solid #c7406b;
-  color: #c7406b;
+  border: 1px solid #e14174;
+  color: #e14174;
 }
 a.bttn.error:hover {
   color: #212020;
-  background-color: #c7406b;
+  background-color: #e14174;
 }
 
 a.card, .search {
@@ -141,10 +144,10 @@ ul li {
 ul li::before {
   position: absolute;
   content: "";
-  width: 8rem;
+  width: 100rem;
   height: 1px;
-  background: #816cf3;
-  left: -7.75rem;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 97%, rgb(128, 108, 243));
+  left: -99.75rem;
   top: 10px;
 }
 ul li ul {
@@ -198,11 +201,11 @@ img {
 }
 
 .secondary {
-  color: #5b5b5b;
+  color: #5d5d5d;
 }
 
 .special {
-  background-color: #5b5b5b;
+  background-color: #5d5d5d;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
 }
@@ -221,7 +224,7 @@ span.icon {
   flex: 240px;
   overflow: hidden;
   border-radius: 0.25rem;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   background-color: #212020;
 }
 .card-list__item-img {
@@ -233,7 +236,7 @@ span.icon {
 }
 .card-list__item-footer {
   padding: 1rem;
-  border-top: 1px solid #5b5b5b;
+  border-top: 1px solid #5d5d5d;
 }
 
 .status {
@@ -255,12 +258,13 @@ span.icon {
 }
 
 .wrap {
+  overflow: hidden;
   width: 80vw;
   gap: 3rem;
 }
 .wrap section, .wrap article {
-  gap: 1rem;
   overflow: hidden;
+  gap: 1rem;
 }
 .wrap section:has(a.card), .wrap article:has(a.card) {
   overflow: visible;
@@ -287,7 +291,7 @@ span.icon {
 }
 .wrap section .suggest-result__item, .wrap article .suggest-result__item {
   background-color: #212020;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   border-radius: 0.25rem;
   flex-wrap: wrap;
   overflow: hidden;
@@ -312,7 +316,7 @@ span.icon {
 .wrap section .suggest-result__item-footer, .wrap article .suggest-result__item-footer {
   position: relative;
   width: 100%;
-  border-top: 1px solid #5b5b5b;
+  border-top: 1px solid #5d5d5d;
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
@@ -326,14 +330,14 @@ span.icon {
 
 .movie-comments__item-icon, .profile-info__icon {
   border-radius: 0.25rem;
-  background-color: #5b5b5b;
+  background-color: #5d5d5d;
   width: 4rem;
   height: 4rem;
 }
 
 .profile {
   background-color: #212020;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   border-radius: 0.25rem;
   padding-top: 1rem;
 }
@@ -342,11 +346,11 @@ span.icon {
 }
 .profile-info, .profile-rank, .profile-stats {
   padding: 0 1rem;
+  padding-bottom: 1rem;
 }
 .profile-footer {
-  margin-top: 0.5rem;
   gap: 0;
-  border-top: 1px solid #5b5b5b;
+  border-top: 1px solid #5d5d5d;
 }
 .profile-footer a {
   position: relative;
@@ -360,7 +364,7 @@ span.icon {
   right: 1rem;
 }
 .profile-footer a:nth-child(2) {
-  border-left: 1px solid #5b5b5b !important;
+  border-left: 1px solid #5d5d5d !important;
 }
 .profile-footer a:nth-child(2):hover::after {
   position: absolute;
@@ -385,7 +389,7 @@ form .input-wrap__gen {
   width: fit-content;
   margin: 0;
   padding: 1rem 1rem;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   border-radius: 0 0.25rem 0.25rem 0;
 }
 form .input-wrap__gen:hover {
@@ -398,7 +402,7 @@ form input, form button {
   font-size: 14px;
   width: 100%;
   border-radius: 0.25rem;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #5d5d5d;
   background: none;
   color: #E0DEDE;
   padding: 1rem;
@@ -436,7 +440,7 @@ footer {
 footer::before {
   content: "";
   position: absolute;
-  background-color: #5b5b5b;
+  background-color: #5d5d5d;
   width: 400px;
   height: 1px;
   top: 10px;

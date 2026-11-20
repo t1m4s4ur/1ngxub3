@@ -11,7 +11,7 @@ import { sup } from "motion/react-client";
 const pageContent = {
   "/": {
     directory: "idx",
-    description: "welcome! pls choose your directory",
+    description: "choose directory",
   },
   "/mvs": {
     directory: "mvs",
@@ -89,14 +89,14 @@ export default function App() {
   return (
     <>
       <div className="wrap flex ver">
-        {pathname !== "/" && <Link to="/">back to idx</Link>}
+        {pathname !== "/" && <Link to="/">back to ./idx</Link>}
         {loading && (
           <div className="loading">
             <div className="loading-circle"></div>
           </div>
         )}
         <Header directory={page.directory} description={page.description} />
-        <main>
+        <main className="flex ver">
           <Outlet context={{ supabase }} />
           {/* <img src="https://i.pinimg.com/originals/63/17/31/63173162a98b20f741f434b2ee1b5de4.gif" alt="dino" className="gif" /> */}
         </main>
