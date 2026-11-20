@@ -4,7 +4,7 @@ export default function Header({ directory, description }) {
   return (
     <header className="flex ver">
       <h1>
-        <span>../</span>
+        <span>./</span>
         <Typewriter
           key={directory}
           options={{

@@ -18,6 +18,7 @@ export default function Card() {
           </p>
         </div>
         <div className="card-list__item-footer tags flex hor">
+          {/* <p className="secondary">mvTags:</p> */}
           <p className="tag comedy">comedy</p>
           <p className="tag romance">romance</p>
         </div>

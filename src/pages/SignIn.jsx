@@ -18,7 +18,7 @@ export default function SignIn() {
         autoComplete="false"
       />
 
-      <input type="button" value="sign in" />
+      <button type="submit">sign in</button>
       <p>
         don't have an acc? <Link to="/signup">sign up</Link>
       </p>

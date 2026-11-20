@@ -13,6 +13,14 @@ export default function SignUp() {
         />
         <div className="input-wrap__gen">genr8</div>
       </div>
+      {/* <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="email"
+        autoComplete="false"
+      />
+      <hr /> */}
       <input
         type="password"
         name="pwd1"
@@ -27,7 +35,7 @@ export default function SignUp() {
         placeholder="confirm pwd"
         autoComplete="false"
       />
-      <input type="button" value="sign up" />
+      <button type="submit">sign up</button>
       <p>
         already have an acc? <Link to="/signin">sign in</Link>
       </p>

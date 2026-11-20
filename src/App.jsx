@@ -1,36 +1,36 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCursorFollow } from "react-use-cursor-follow";
 
 import Footer from "./assets/components/footer";
 import Header from "./assets/components/header";
 
 import { supabase } from "./utils/supabase";
-
-import "./App.css";
+import { sup } from "motion/react-client";
 
 const pageContent = {
   "/": {
-    directory: "index",
+    directory: "idx",
     description: "welcome! pls choose your directory",
   },
-  "/movies": {
-    directory: "movies",
+  "/mvs": {
+    directory: "mvs",
     description: "list of all movies",
   },
-  "/movies/watched": {
-    directory: "movies/watched",
+  "/mvs/wd": {
+    directory: "mvs/wd",
     description: "list of all watched movies",
   },
-  "/movies/watchlist": {
-    directory: "movies/watchlist",
+  "/mvs/wl": {
+    directory: "mvs/wl",
     description: "list of all unwatched movies",
   },
-  "/movies/watchlist/suggest": {
-    directory: "movies/watchlist/suggest",
+  "/mvs/wl/sgt": {
+    directory: "mvs/wl/sgt",
     description: "suggest a new movie",
   },
-  "/movies/watchlist/vote": {
-    directory: "movies/watchlist/vote",
+  "/mvs/wl/vote": {
+    directory: "mvs/wl/vote",
     description: "vote for a movie",
   },
   "/signup": {
@@ -41,8 +41,8 @@ const pageContent = {
     directory: "signin",
     description: "sign in to your acc to browse",
   },
-  "/profile": {
-    directory: "profile",
+  "/prf": {
+    directory: "prf",
     description: "settings and customization",
   },
   "*": {
@@ -52,8 +52,14 @@ const pageContent = {
 };
 
 export default function App() {
-  const { pathname } = useLocation();
+  useCursorFollow({
+    color: "#e0dede24",
+    easingFactor: "0.25",
+    size: "50",
+    hideCursor: false,
+  });
 
+  const { pathname } = useLocation();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -61,13 +67,11 @@ export default function App() {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 500);
-
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  const isMoviePage = /^\/movies\/mv\d+$/.test(pathname);
+  const isMoviePage = /^\/mvs\/mv\d+$/.test(pathname);
   const knownPage = pageContent[pathname];
-
   const page = isMoviePage
     ? {
         directory: pathname.slice(1),
@@ -75,13 +79,17 @@ export default function App() {
       }
     : (knownPage ?? {
         directory: "404",
-        description: "page not found pls go back to index",
+        description: "page not found pls go back to idx",
       });
+
+  useEffect(() => {
+    document.title = `./${page.directory}`;
+  }, [page.directory]);
 
   return (
     <>
       <div className="wrap flex ver">
-        {pathname !== "/" && <Link to="/">back to index</Link>}
+        {pathname !== "/" && <Link to="/">back to idx</Link>}
         {loading && (
           <div className="loading">
             <div className="loading-circle"></div>
@@ -89,7 +97,7 @@ export default function App() {
         )}
         <Header directory={page.directory} description={page.description} />
         <main>
-          <Outlet />
+          <Outlet context={{ supabase }} />
           {/* <img src="https://i.pinimg.com/originals/63/17/31/63173162a98b20f741f434b2ee1b5de4.gif" alt="dino" className="gif" /> */}
         </main>
         <Footer />

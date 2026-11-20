@@ -4,6 +4,12 @@ export default function Movies() {
   return (
     <section className="card-list flex">
       <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </section>
   );
 }

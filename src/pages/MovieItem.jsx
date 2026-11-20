@@ -47,7 +47,7 @@ export default function MovieItem() {
           <p>{movie.description}</p>
           <p>
             <a href={movie.imdbUrl} target="_blank" rel="noopener noreferrer">
-              IMDB page
+              TMDB
             </a>
           </p>
         </div>

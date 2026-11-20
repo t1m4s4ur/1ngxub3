@@ -7,8 +7,9 @@
 
 $txt: #E0DEDE
 $bg: #212020
+$bg-gradient: radial-gradient(circle at 0% 0%, #161616, #212020)
 $border: #5b5b5b
-$accent: #7a69dd
+$accent: #816cf3
 $error: #c7406b
 
 $xxs-mp: .25rem
@@ -20,7 +21,7 @@ $xl-mp: 12rem
 
 @media screen and (max-width: 650px)
     .wrap
-        padding: $m-mp
+        padding: $m-mp $xs-mp
     footer
         right: -2.5rem
 
@@ -30,13 +31,19 @@ $xl-mp: 12rem
     footer
         right: -$s-mp
 
-@media screen and (min-width: 1000px)
+@media screen and (min-width: 1100px)
     .wrap
         padding: $l-mp calc( $xl-mp * 1.5 )
 
 @media screen and (min-width: 1500px)
     .wrap
-        padding: $l-mp calc( $xl-mp * 2.5 )
+        padding: $l-mp calc( $xl-mp * 2 )
+
+// @keyframes fadeIn
+//     from
+//         opacity: 0%
+//     to
+//         opacity: 100%
 
 // .gif
 //     position: fixed
@@ -49,39 +56,48 @@ $xl-mp: 12rem
 
 .loading
     position: fixed
-    inset: 0
-    z-index: 2000
-    display: flex
-    align-items: center
-    justify-content: center
-    background-color: $bg
-    font-size: $m-mp
-    &-circle
-        width: $m-mp
-        height: $m-mp
-        border-radius: 50%
-        border: $xxs-mp solid $accent
-        border-top-color: transparent
-        animation: spin 1s linear infinite
+//     inset: 0
+//     z-index: 2000
+//     display: flex
+//     align-items: center
+//     justify-content: center
+//     background-color: $bg
+//     font-size: $m-mp
+//     &-circle
+//         width: $m-mp
+//         height: $m-mp
+//         border-radius: 50%
+//         border: $xxs-mp solid $accent
+//         border-top-color: transparent
+//         animation: spin 1s linear infinite
 
 @keyframes spin
-    0%
+    from
         transform: rotate(0deg)
-    100%
+    to
         transform: rotate(360deg)
 
 body
+    cursor: crosshair !important
     height: 100vh
     display: flex
     align-items: flex-start
     justify-content: center
     color: $txt
+    background-image: url("https://i.pinimg.com/1200x/7d/68/7a/7d687ac27902cd6d11fbad28653768c2.jpg")
+    background-blend-mode: multiply
+    background-size: 24rem
+    background-attachment: fixed
     background-color: $bg
     // font-family: 'Ubuntu', sans
     font-family: 'IBM Plex Mono', monospace
     font-size: 14px
-    &:has(section.index),&:has(.profile),&:has(.signin),&:has(.signup)
+    &:has(section.idx),&:has(.profile),&:has(.signin),&:has(.signup)
         align-items: center !important
+
+// main
+//     opacity: 0
+//     animation: fadeIn .3s ease-in-out forwards
 
 hr
     border-color: $border
@@ -113,26 +129,24 @@ a
         border: 1px solid $border
         padding: $s-mp
         color: $txt
+        background-color: $bg
         &:hover
             color: $bg
             background-color: $accent
             border: 1px solid $accent
         &.error
-            color: $bg
-            background-color: $bg
             border: 1px solid $error
             color: $error
             &:hover
                 color: $bg
                 background-color: $error
 
-    &.card
-        color: $txt
-        text-decoration: none
-        transition: .1s
-        &:hover
-            transform: translateY(-$xxs-mp)
-
+a.card, .search
+    color: $txt
+    text-decoration: none
+    transition: .1s
+    &:hover
+        transform: translateY(-$xxs-mp)
 ul
     display: flex
     flex-direction: column
@@ -204,6 +218,7 @@ span.icon
         overflow: hidden
         border-radius: $xxs-mp
         border: 1px solid $border
+        background-color: $bg
         &-img
             height: $xl-mp
         &-txt
@@ -229,9 +244,10 @@ span.icon
         color: $txt
 
 .wrap
+    width: 80vw
     gap: $m-mp
     section, article
-        gap: $m-mp
+        gap: $s-mp
         overflow: hidden
         &:has(a.card)
             overflow: visible
@@ -252,6 +268,43 @@ span.icon
                         .date
                             text-align: right
 
+        .suggest
+            &-result
+                margin-top: $s-mp
+                gap: $s-mp
+                &__item
+                    background-color: $bg
+                    border: 1px solid $border
+                    border-radius: $xxs-mp
+                    flex-wrap: wrap
+                    overflow: hidden
+                    gap: 0
+                    &-cover
+                        flex: 225px 1 1
+                        border-radius: 0
+                    &-txt
+                        flex: 250px 1 1
+                        justify-content: space-between
+                        .info
+                            padding: $s-mp
+                            margin-left: $xxs-mp
+                            margin-top: $xxs-mp
+                        .tags
+                            margin-bottom: $s-mp
+                    &-footer
+                        position: relative
+                        width: 100%
+                        border-top: 1px solid $border
+                        border-left: 0
+                        border-right: 0
+                        border-bottom: 0
+                        border-radius: 0
+                        &:hover
+                            &::after
+                                position: absolute
+                                content: "+"
+                                right: $s-mp
+
 .movie-comments__item-icon, .profile-info__icon
     border-radius: $xxs-mp
     background-color: $border
@@ -259,8 +312,34 @@ span.icon
     height: 4rem
 
 .profile
+    background-color: $bg
+    border: 1px solid $border
+    border-radius: $xxs-mp
+    padding-top: $s-mp
     &-info, h3
         align-items: center
+    &-info, &-rank, &-stats
+        padding: 0 $s-mp
+    &-footer
+        margin-top: $xs-mp
+        gap: 0
+        border-top: 1px solid $border
+        a
+            position: relative
+            width: 100%
+            border-radius: 0
+            border: none !important
+            &:nth-child(1)
+                &:hover::after
+                    position: absolute
+                    content: "./"
+                    right: $s-mp
+            &:nth-child(2)
+                border-left: 1px solid $border !important
+                &:hover::after
+                    position: absolute
+                    content: "x"
+                    right: $s-mp
 
 form
     gap: $s-mp !important
@@ -270,15 +349,19 @@ form
             border-right: none
             border-radius: $xxs-mp 0 0 $xxs-mp
         &__gen
+            background-color: $bg !important
+            cursor: pointer !important
+            width: fit-content
+            margin: 0
             padding: $s-mp $s-mp
             border: 1px solid $border
             border-radius: 0 $xxs-mp $xxs-mp 0
-            cursor: pointer
             &:hover
-                background-color: $accent
+                background-color: $accent !important
                 border: 1px solid $accent
-                color: $txt
-    input
+                color: $bg
+    input, button
+        background-color: $bg !important
         font-size: 14px
         width: 100%
         border-radius: $xxs-mp
@@ -290,17 +373,22 @@ form
         &:focus
             outline: none
             border: 1px solid $accent
-        &[type=button]
-            margin-top: $s-mp
-            width: 100%
-            cursor: pointer
-            background-color: $txt
-            border: 1px solid $txt
-            color: $bg
-            &:hover
-                background-color: $accent
-                border: 1px solid $accent
-                color: $txt
+    button
+        cursor: pointer !important
+        position: relative
+        text-align: left
+        margin-top: $s-mp
+        width: 100%
+        background-color: $txt !important
+        border: 1px solid $txt
+        color: $bg
+        &:hover
+            background-color: $accent !important
+            border: 1px solid $accent
+            &::after
+                position: absolute
+                content: "+"
+                right: $s-mp
 
 footer
     top: 16rem

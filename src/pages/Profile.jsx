@@ -12,7 +12,7 @@ export default function Profile() {
           </p>
         </div>
       </div>
-      <div className="profile-stats flex ver">
+      <div className="profile-rank flex ver">
         <h3 >> myRank: <span className="special">noob</span></h3>
         <p><span className="secondary">rankDesc:</span> never been to a movie night</p>
       </div>
@@ -28,7 +28,7 @@ export default function Profile() {
           <span className="secondary">favGenres:</span> comedy, thriller, action
         </p>
       </div>
-      <div className="bttn-group flex hor">
+      <div className="profile-footer flex hor">
         <a href="" className="bttn">
           sign out
         </a>
