@@ -35,6 +35,7 @@ export default function MovieItem() {
         <img
           src="https://images.unsplash.com/photo-1793279054626-dadc776db13b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
           alt="img"
+          className="framed"
         />
         <div className="movie-txt flex ver">
           <div className="status watched">watched on 11/11/2011</div>

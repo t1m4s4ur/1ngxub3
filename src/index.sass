@@ -19,26 +19,6 @@ $m-mp: 3rem
 $l-mp: 6rem
 $xl-mp: 12rem
 
-@media screen and (max-width: 650px)
-    .wrap
-        padding: $m-mp $xs-mp
-    footer
-        right: -2.5rem
-
-@media screen and (min-width: 651px)
-    .wrap
-        padding: $l-mp
-    footer
-        right: -$s-mp
-
-@media screen and (min-width: 1100px)
-    .wrap
-        padding: $l-mp calc( $xl-mp * 1.5 )
-
-@media screen and (min-width: 1500px)
-    .wrap
-        padding: $l-mp calc( $xl-mp * 2 )
-
 // @keyframes fadeIn
 //     from
 //         opacity: 0%
@@ -89,14 +69,12 @@ body
     background-size: 16rem
     background-attachment: fixed
     background-color: $bg
-    // font-family: 'Ubuntu', sans
     font-family: 'IBM Plex Mono', monospace
     font-size: 14px
-    &:has(section.idx),&:has(.profile),&:has(.signin),&:has(.signup)
+    &:has(.profile),&:has(.signin),&:has(.signup)
         align-items: center !important
 
 main
-    // overflow: hidden
     gap: $m-mp !important
 
 hr
@@ -109,10 +87,10 @@ h1,h2,h3
     align-items: flex-start
     gap: $xxs-mp
 h1
-    font-size: 1.35rem
+    font-size: 2.5rem
     font-weight: 700
 h2
-    font-size: 1.25rem
+    font-size: 1.5rem
     font-weight: 600
 h3
     font-size: 1rem
@@ -177,7 +155,9 @@ img
     width: 100%
     object-fit: cover
     height: 24rem
-    border-radius: $xxs-mp
+    &.framed
+        border-radius: $xxs-mp
+        border: 1px solid $border
 
 .tags
     gap: $xs-mp
@@ -210,14 +190,13 @@ span.icon
 
 .card-list
     flex-wrap: wrap
+    gap: 1.75rem !important
     &__item
+        @extend .panel
         position: relative
         align-self: flex-start
         flex: 240px
         overflow: hidden
-        border-radius: $xxs-mp
-        border: 1px solid $border
-        background-color: $bg
         &-img
             height: $xl-mp
         &-txt
@@ -239,14 +218,20 @@ span.icon
         background-color: $txt
         color: $bg
     &.unwatched
-        background-color: $bg
         color: $txt
 
 .wrap
     overflow: hidden
     width: 80vw
     gap: $m-mp
-    section, article
+    padding: $m-mp $xs-mp
+    @media screen and (min-width: 651px)
+        padding: $l-mp
+    @media screen and (min-width: 1100px)
+        padding: $l-mp calc( $xl-mp * 1.5 )
+    @media screen and (min-width: 1500px)
+        padding: $l-mp calc( $xl-mp * 2 )
+    section, article, nav
         overflow: hidden
         gap: $s-mp
         &:has(a.card)
@@ -273,15 +258,12 @@ span.icon
                 margin-top: $s-mp
                 gap: $s-mp
                 &__item
-                    background-color: $bg
-                    border: 1px solid $border
-                    border-radius: $xxs-mp
+                    @extend .panel
                     flex-wrap: wrap
                     overflow: hidden
                     gap: 0
                     &-cover
                         flex: 225px 1 1
-                        border-radius: 0
                     &-txt
                         flex: 250px 1 1
                         justify-content: space-between
@@ -305,6 +287,11 @@ span.icon
                                 content: "+"
                                 right: $s-mp
 
+.panel
+    background-color: $bg
+    border: 1px solid $border
+    border-radius: $xxs-mp
+
 .movie-comments__item-icon, .profile-info__icon
     border-radius: $xxs-mp
     background-color: $border
@@ -312,9 +299,7 @@ span.icon
     height: 4rem
 
 .profile
-    background-color: $bg
-    border: 1px solid $border
-    border-radius: $xxs-mp
+    @extend .panel
     padding-top: $s-mp
     &-info, h3
         align-items: center
@@ -353,7 +338,7 @@ form
             cursor: pointer !important
             width: fit-content
             margin: 0
-            padding: $s-mp $s-mp
+            padding: $s-mp
             border: 1px solid $border
             border-radius: 0 $xxs-mp $xxs-mp 0
             &:hover
@@ -378,7 +363,6 @@ form
         position: relative
         text-align: left
         margin-top: $s-mp
-        width: 100%
         background-color: $txt !important
         border: 1px solid $txt
         color: $bg
@@ -391,9 +375,12 @@ form
                 right: $s-mp
 
 footer
+    right: -1.5rem
     top: 16rem
     position: fixed
     transform: rotate(90deg)
+    @media screen and (min-width: 651px)
+        right: $s-mp
     &::before
         content: ""
         position: absolute

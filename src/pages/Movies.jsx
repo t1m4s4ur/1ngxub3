@@ -4,25 +4,34 @@ import { Link } from "react-router-dom";
 export default function Movies() {
   return (
     <>
-      <div className="section flex ver">
-        <p>browse subdirectories</p>
-        <ul>
+      {/* <nav className="flex ver">
+        <ul className="directory flex ver">
+          <li>/hp</li>
           <li>
-            <Link to="/mvs/wd">/wd</Link>
+            <Link to="/prf">/prf</Link>
           </li>
           <li>
-            <Link to="/mvs/wl">/wl</Link>
+            /mvs
             <ul>
               <li>
-                <Link to="/mvs/wl/sgt">/sgt</Link>
+                <Link to="/mvs/wd">/wd</Link>
               </li>
               <li>
-                <Link to="/mvs/wl/vote">/vote</Link>
+                <Link to="/mvs/wl">/wl</Link>
+                <ul>
+                  <li>
+                    <Link to="/mvs/wl/sgt">/sgt</Link>
+                  </li>
+                  <li>
+                    <Link to="/mvs/wl/vote">/vote</Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
+          <li>/res</li>
         </ul>
-      </div>
+      </nav> */}
 
       <section className="card-list flex">
         <Card />

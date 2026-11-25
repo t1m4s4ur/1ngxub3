@@ -5,32 +5,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 650px) {
-  .wrap {
-    padding: 3rem 0.5rem;
-  }
-  footer {
-    right: -2.5rem;
-  }
-}
-@media screen and (min-width: 651px) {
-  .wrap {
-    padding: 6rem;
-  }
-  footer {
-    right: -1rem;
-  }
-}
-@media screen and (min-width: 1100px) {
-  .wrap {
-    padding: 6rem 18rem;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .wrap {
-    padding: 6rem 24rem;
-  }
-}
 .loading {
   position: fixed;
 }
@@ -58,7 +32,7 @@ body {
   font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
 }
-body:has(section.idx), body:has(.profile), body:has(.signin), body:has(.signup) {
+body:has(.profile), body:has(.signin), body:has(.signup) {
   align-items: center !important;
 }
 
@@ -79,12 +53,12 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 1.35rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -170,7 +144,10 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 24rem;
+}
+img.framed {
   border-radius: 0.25rem;
+  border: 1px solid #5d5d5d;
 }
 
 .tags {
@@ -217,15 +194,13 @@ span.icon {
 
 .card-list {
   flex-wrap: wrap;
+  gap: 1.75rem !important;
 }
 .card-list__item {
   position: relative;
   align-self: flex-start;
   flex: 240px;
   overflow: hidden;
-  border-radius: 0.25rem;
-  border: 1px solid #5d5d5d;
-  background-color: #212020;
 }
 .card-list__item-img {
   height: 12rem;
@@ -253,7 +228,6 @@ span.icon {
   color: #212020;
 }
 .status.unwatched {
-  background-color: #212020;
   color: #E0DEDE;
 }
 
@@ -261,59 +235,71 @@ span.icon {
   overflow: hidden;
   width: 80vw;
   gap: 3rem;
+  padding: 3rem 0.5rem;
 }
-.wrap section, .wrap article {
+@media screen and (min-width: 651px) {
+  .wrap {
+    padding: 6rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .wrap {
+    padding: 6rem 18rem;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .wrap {
+    padding: 6rem 24rem;
+  }
+}
+.wrap section, .wrap article, .wrap nav {
   overflow: hidden;
   gap: 1rem;
 }
-.wrap section:has(a.card), .wrap article:has(a.card) {
+.wrap section:has(a.card), .wrap article:has(a.card), .wrap nav:has(a.card) {
   overflow: visible;
 }
-.wrap section.movie, .wrap article.movie {
+.wrap section.movie, .wrap article.movie, .wrap nav.movie {
   position: relative;
 }
-.wrap section.movie h3, .wrap article.movie h3 {
+.wrap section.movie h3, .wrap article.movie h3, .wrap nav.movie h3 {
   margin-bottom: 1rem;
 }
-.wrap section .movie-comments__item, .wrap article .movie-comments__item {
+.wrap section .movie-comments__item, .wrap article .movie-comments__item, .wrap nav .movie-comments__item {
   margin-bottom: 0.5rem;
 }
-.wrap section .movie-comments__item-txt .usr, .wrap article .movie-comments__item-txt .usr {
+.wrap section .movie-comments__item-txt .usr, .wrap article .movie-comments__item-txt .usr, .wrap nav .movie-comments__item-txt .usr {
   font-weight: bold;
   margin-bottom: -0.5rem;
 }
-.wrap section .movie-comments__item-txt .date, .wrap article .movie-comments__item-txt .date {
+.wrap section .movie-comments__item-txt .date, .wrap article .movie-comments__item-txt .date, .wrap nav .movie-comments__item-txt .date {
   text-align: right;
 }
-.wrap section .suggest-result, .wrap article .suggest-result {
+.wrap section .suggest-result, .wrap article .suggest-result, .wrap nav .suggest-result {
   margin-top: 1rem;
   gap: 1rem;
 }
-.wrap section .suggest-result__item, .wrap article .suggest-result__item {
-  background-color: #212020;
-  border: 1px solid #5d5d5d;
-  border-radius: 0.25rem;
+.wrap section .suggest-result__item, .wrap article .suggest-result__item, .wrap nav .suggest-result__item {
   flex-wrap: wrap;
   overflow: hidden;
   gap: 0;
 }
-.wrap section .suggest-result__item-cover, .wrap article .suggest-result__item-cover {
+.wrap section .suggest-result__item-cover, .wrap article .suggest-result__item-cover, .wrap nav .suggest-result__item-cover {
   flex: 225px 1 1;
-  border-radius: 0;
 }
-.wrap section .suggest-result__item-txt, .wrap article .suggest-result__item-txt {
+.wrap section .suggest-result__item-txt, .wrap article .suggest-result__item-txt, .wrap nav .suggest-result__item-txt {
   flex: 250px 1 1;
   justify-content: space-between;
 }
-.wrap section .suggest-result__item-txt .info, .wrap article .suggest-result__item-txt .info {
+.wrap section .suggest-result__item-txt .info, .wrap article .suggest-result__item-txt .info, .wrap nav .suggest-result__item-txt .info {
   padding: 1rem;
   margin-left: 0.25rem;
   margin-top: 0.25rem;
 }
-.wrap section .suggest-result__item-txt .tags, .wrap article .suggest-result__item-txt .tags {
+.wrap section .suggest-result__item-txt .tags, .wrap article .suggest-result__item-txt .tags, .wrap nav .suggest-result__item-txt .tags {
   margin-bottom: 1rem;
 }
-.wrap section .suggest-result__item-footer, .wrap article .suggest-result__item-footer {
+.wrap section .suggest-result__item-footer, .wrap article .suggest-result__item-footer, .wrap nav .suggest-result__item-footer {
   position: relative;
   width: 100%;
   border-top: 1px solid #5d5d5d;
@@ -322,10 +308,16 @@ span.icon {
   border-bottom: 0;
   border-radius: 0;
 }
-.wrap section .suggest-result__item-footer:hover::after, .wrap article .suggest-result__item-footer:hover::after {
+.wrap section .suggest-result__item-footer:hover::after, .wrap article .suggest-result__item-footer:hover::after, .wrap nav .suggest-result__item-footer:hover::after {
   position: absolute;
   content: "+";
   right: 1rem;
+}
+
+.panel, .profile, .card-list__item, .wrap section .suggest-result__item, .wrap article .suggest-result__item, .wrap nav .suggest-result__item {
+  background-color: #212020;
+  border: 1px solid #5d5d5d;
+  border-radius: 0.25rem;
 }
 
 .movie-comments__item-icon, .profile-info__icon {
@@ -336,9 +328,6 @@ span.icon {
 }
 
 .profile {
-  background-color: #212020;
-  border: 1px solid #5d5d5d;
-  border-radius: 0.25rem;
   padding-top: 1rem;
 }
 .profile-info, .profile h3 {
@@ -388,7 +377,7 @@ form .input-wrap__gen {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0;
-  padding: 1rem 1rem;
+  padding: 1rem;
   border: 1px solid #5d5d5d;
   border-radius: 0 0.25rem 0.25rem 0;
 }
@@ -417,7 +406,6 @@ form button {
   position: relative;
   text-align: left;
   margin-top: 1rem;
-  width: 100%;
   background-color: #E0DEDE !important;
   border: 1px solid #E0DEDE;
   color: #212020;
@@ -433,9 +421,15 @@ form button:hover::after {
 }
 
 footer {
+  right: -1.5rem;
   top: 16rem;
   position: fixed;
   transform: rotate(90deg);
+}
+@media screen and (min-width: 651px) {
+  footer {
+    right: 1rem;
+  }
 }
 footer::before {
   content: "";

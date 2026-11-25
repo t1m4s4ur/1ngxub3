@@ -11,7 +11,7 @@ import { sup } from "motion/react-client";
 const pageContent = {
   "/": {
     directory: "idx",
-    description: "choose directory",
+    description: "main dir",
   },
   "/mvs": {
     directory: "mvs",
