@@ -90,11 +90,11 @@ export default function App() {
     <>
       <div className="wrap flex ver">
         {pathname !== "/" && <Link to="/">back to ./idx</Link>}
-        {loading && (
+        {/* {loading && (
           <div className="loading">
             <div className="loading-circle"></div>
           </div>
-        )}
+        )} */}
         <Header directory={page.directory} description={page.description} />
         <main className="flex ver">
           <Outlet context={{ supabase }} />

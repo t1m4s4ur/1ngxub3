@@ -35,21 +35,16 @@ $xl-mp: 12rem
 //     filter: grayscale(100%) opacity(.5)
 
 .loading
-    position: fixed
-//     inset: 0
-//     z-index: 2000
-//     display: flex
-//     align-items: center
-//     justify-content: center
-//     background-color: $bg
-//     font-size: $m-mp
-//     &-circle
-//         width: $m-mp
-//         height: $m-mp
-//         border-radius: 50%
-//         border: $xxs-mp solid $accent
-//         border-top-color: transparent
-//         animation: spin 1s linear infinite
+    position: absolute
+    top: 45%
+    left: 45%
+    &-circle
+        width: $m-mp
+        height: $m-mp
+        border-radius: 50%
+        border: $xxs-mp solid $accent
+        border-top-color: transparent
+        animation: spin 1s linear infinite
 
 @keyframes spin
     from
@@ -153,8 +148,8 @@ ul
 
 img
     width: 100%
+    max-height: 32rem
     object-fit: cover
-    height: 24rem
     &.framed
         border-radius: $xxs-mp
         border: 1px solid $border
@@ -183,6 +178,8 @@ img
     background-color: $border
     padding: $xxs-mp $xs-mp
     border-radius: $xxs-mp
+.error
+    color: $error
 
 span.icon
     margin-right: $xs-mp
@@ -262,7 +259,10 @@ span.icon
                     flex-wrap: wrap
                     overflow: hidden
                     gap: 0
+                    h3
+                        justify-content: space-between
                     &-cover
+                        filter: grayscale(.75)
                         flex: 225px 1 1
                     &-txt
                         flex: 250px 1 1
@@ -274,6 +274,9 @@ span.icon
                         .tags
                             margin-bottom: $s-mp
                     &-footer
+                        margin-top: 0 !important
+                        background-color: $bg !important
+                        color: $txt !important
                         position: relative
                         width: 100%
                         border-top: 1px solid $border
@@ -282,6 +285,8 @@ span.icon
                         border-bottom: 0
                         border-radius: 0
                         &:hover
+                            background-color: $accent !important
+                            color: $bg !important
                             &::after
                                 position: absolute
                                 content: "+"
@@ -345,34 +350,35 @@ form
                 background-color: $accent !important
                 border: 1px solid $accent
                 color: $bg
-    input, button
-        background-color: $bg !important
-        font-size: 14px
-        width: 100%
-        border-radius: $xxs-mp
-        border: 1px solid $border
-        background: none
-        color: $txt
-        padding: $s-mp
-        font-family: 'Ubuntu', sans
-        &:focus
-            outline: none
-            border: 1px solid $accent
-    button
-        cursor: pointer !important
-        position: relative
-        text-align: left
-        margin-top: $s-mp
-        background-color: $txt !important
-        border: 1px solid $txt
-        color: $bg
-        &:hover
-            background-color: $accent !important
-            border: 1px solid $accent
-            &::after
-                position: absolute
-                content: "+"
-                right: $s-mp
+input, button
+    padding: $s-mp
+    background-color: $bg !important
+    font-size: 14px
+    width: 100%
+    border-radius: $xxs-mp
+    border: 1px solid $border
+    background: none
+    color: $txt
+    padding: $s-mp
+    font-family: 'Ubuntu', sans
+    &:focus
+        outline: none
+        border: 1px solid $accent
+button
+    cursor: pointer !important
+    position: relative
+    text-align: left
+    margin-top: $s-mp
+    background-color: $txt !important
+    border: 1px solid $txt
+    color: $bg
+    &:hover
+        background-color: $accent !important
+        border: 1px solid $accent
+        &::after
+            position: absolute
+            content: "+"
+            right: $s-mp
 
 footer
     right: -1.5rem
